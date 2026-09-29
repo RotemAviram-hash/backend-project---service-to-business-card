@@ -50,6 +50,22 @@ const update = async (id, cardData, userId) => {
   return await cardRepository.update(id, cardData);
 };
 
+const updateBizNumber = async (id, bizNumber) => {
+  const card = await cardRepository.getById(id);
+
+  if (!card) {
+    throw new AppError("Card not found", 404);
+  }
+
+  const existingCard = await cardRepository.findByBizNumber(bizNumber);
+
+  if (existingCard && existingCard._id.toString() !== id.toString()) {
+    throw new AppError("Business number already exists", 400);
+  }
+
+  return await cardRepository.update(id, { bizNumber });
+};
+
 const like = async (id, userId) => {
   const card = await cardRepository.getById(id);
 
@@ -90,6 +106,7 @@ export default {
   getByUserId,
   create,
   update,
+  updateBizNumber,
   like,
   remove,
 };

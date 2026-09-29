@@ -26,6 +26,9 @@ const update = (id, cardData) => {
 const deleteById = (id) => {
   return Card.findByIdAndDelete(id);
 };
+const findByBizNumber = (bizNumber) => {
+  return Card.findOne({ bizNumber });
+};
 
 export default {
   getAll,
@@ -34,4 +37,5 @@ export default {
   create,
   update,
   deleteById,
+  findByBizNumber,
 };

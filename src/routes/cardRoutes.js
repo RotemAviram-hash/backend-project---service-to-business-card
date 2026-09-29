@@ -4,6 +4,8 @@ import authMiddleware from "../middleware/authMiddleware.js";
 import businessMiddleware from "../middleware/businessMiddleware.js";
 import cardValidation from "../validations/cardValidation.js";
 import validationMiddleware from "../middleware/validationMiddleware.js";
+import adminMiddleware from "../middleware/adminMiddleware.js";
+import bizNumberValidation from "../validations/bizNumberValidation.js";
 
 const router = express.Router();
 
@@ -31,7 +33,17 @@ router.put(
   validationMiddleware(cardValidation),
   cardController.update,
 );
-// Like / unlike card - registered user
+
+// Change business number - admin only
+router.patch(
+  "/:id/bizNumber",
+  authMiddleware,
+  adminMiddleware,
+  validationMiddleware(bizNumberValidation),
+  cardController.updateBizNumber,
+);
+
+// Like / unlike card  - registered user
 router.patch("/:id", authMiddleware, cardController.like);
 
 // Delete card - owner or admin

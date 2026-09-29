@@ -1,0 +1,32 @@
+[2026-09-29T08:39:16.240Z] STATUS: 404 | ERROR: Route not found
+[2026-09-29T08:41:07.331Z] STATUS: 500 | ERROR: Cannot read properties of undefined (reading 'bizNumber')
+[2026-09-29T08:49:01.640Z] STATUS: 401 | ERROR: Authentication required
+[2026-09-29T08:49:11.011Z] STATUS: 404 | ERROR: User not found
+[2026-09-29T08:49:26.550Z] STATUS: 404 | ERROR: Card not found
+[2026-09-29T08:50:40.611Z] STATUS: 500 | ERROR: Cannot read properties of undefined (reading 'bizNumber')
+[2026-09-29T08:53:45.073Z] STATUS: 500 | ERROR: Cannot read properties of undefined (reading 'bizNumber')
+[2026-09-29T08:54:27.700Z] STATUS: 404 | ERROR: Route not found
+[2026-09-29T08:54:40.481Z] STATUS: 404 | ERROR: Route not found
+[2026-09-29T08:55:17.771Z] STATUS: 500 | ERROR: Cannot read properties of undefined (reading 'bizNumber')
+[2026-09-29T08:58:32.429Z] STATUS: 500 | ERROR: Cannot read properties of undefined (reading 'bizNumber')
+[2026-09-29T09:07:00.392Z] STATUS: 500 | ERROR: Cannot read properties of undefined (reading 'bizNumber')
+[2026-09-29T09:07:32.407Z] STATUS: 500 | ERROR: Cannot read properties of undefined (reading 'bizNumber')
+[2026-09-29T09:10:35.019Z] STATUS: 500 | ERROR: Cannot read properties of undefined (reading 'bizNumber')
+[2026-09-29T09:11:39.988Z] STATUS: 404 | ERROR: Route not found
+[2026-09-29T09:11:54.096Z] STATUS: 404 | ERROR: Route not found
+[2026-09-29T09:12:04.943Z] STATUS: 500 | ERROR: Cannot read properties of undefined (reading 'bizNumber')
+[2026-09-29T09:14:07.391Z] STATUS: 500 | ERROR: Cannot read properties of undefined (reading 'bizNumber')
+[2026-09-29T09:19:18.156Z] STATUS: 500 | ERROR: Cannot read properties of undefined (reading 'bizNumber')
+[2026-09-29T09:20:26.721Z] STATUS: 500 | ERROR: Cannot read properties of undefined (reading 'bizNumber')
+[2026-09-29T09:27:52.986Z] STATUS: 500 | ERROR: Cannot read properties of undefined (reading 'bizNumber')
+[2026-09-29T09:28:12.916Z] STATUS: 500 | ERROR: Cannot read properties of undefined (reading 'bizNumber')
+[2026-09-29T09:28:26.943Z] STATUS: 500 | ERROR: Cannot read properties of undefined (reading 'bizNumber')
+[2026-09-29T09:33:12.242Z] STATUS: 500 | ERROR: Cannot read properties of undefined (reading 'bizNumber')
+[2026-09-29T09:33:27.319Z] STATUS: 500 | ERROR: Cannot read properties of undefined (reading 'bizNumber')
+[2026-09-29T09:34:18.911Z] STATUS: 500 | ERROR: Cannot read properties of undefined (reading 'bizNumber')
+[2026-09-29T09:34:32.604Z] STATUS: 500 | ERROR: Cannot read properties of undefined (reading 'bizNumber')
+[2026-09-29T09:37:18.341Z] STATUS: 500 | ERROR: Cannot read properties of undefined (reading 'bizNumber')
+[2026-09-29T09:38:03.029Z] STATUS: 500 | ERROR: Cannot read properties of undefined (reading 'bizNumber')
+[2026-09-29T09:43:59.952Z] STATUS: 400 | ERROR: Business number already exists
+[2026-09-29T09:44:58.686Z] STATUS: 400 | ERROR: Business number already exists
+[2026-09-29T09:44:58.891Z] STATUS: 403 | ERROR: Access denied

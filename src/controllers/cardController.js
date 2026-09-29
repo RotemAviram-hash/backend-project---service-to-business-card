@@ -30,6 +30,15 @@ const update = async (req, res) => {
   res.status(200).json(card);
 };
 
+const updateBizNumber = async (req, res) => {
+  const card = await cardService.updateBizNumber(
+    req.params.id,
+    req.body.bizNumber,
+  );
+
+  res.status(200).json(card);
+};
+
 const like = async (req, res) => {
   const card = await cardService.like(req.params.id, req.user._id);
 
@@ -52,6 +61,7 @@ export default {
   getByUserId,
   create,
   update,
+  updateBizNumber,
   like,
   remove,
 };
