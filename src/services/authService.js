@@ -77,11 +77,7 @@ const googleLogin = async (idToken) => {
 
   const payload = ticket.getPayload();
 
-  console.log("GOOGLE PAYLOAD:", payload);
-
   const user = await userRepository.findByEmail(payload.email);
-
-  console.log("LOCAL USER:", user);
 
   if (user) {
     if (user.isAdmin || user.isBusiness) {

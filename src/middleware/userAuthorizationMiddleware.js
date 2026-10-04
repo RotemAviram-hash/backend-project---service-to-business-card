@@ -1,14 +1,17 @@
 import AppError from "./AppError.js";
 
-const userAuthorizationMiddleware = (req, res, next) => {
-  const userId = req.user._id;
-  const requestedUserId = req.params.id;
+const userAuthorizationMiddleware = (allowAdmin = false) => {
+  return (req, res, next) => {
+    const userId = req.user._id;
+    const requestedUserId = req.params.id;
 
-  if (req.user.isAdmin || userId.toString() === requestedUserId) {
-    return next();
-  }
+    const isSameUser = userId.toString() === requestedUserId;
 
-  next(new AppError("Access denied", 403));
+    if (isSameUser || (allowAdmin && req.user.isAdmin)) {
+      return next();
+    }
+
+    next(new AppError("Access denied", 403));
+  };
 };
-
 export default userAuthorizationMiddleware;

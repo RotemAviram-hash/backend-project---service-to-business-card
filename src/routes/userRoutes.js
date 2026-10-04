@@ -17,17 +17,18 @@ router.post(
 );
 
 router.get("/", authMiddleware, adminMiddleware, userController.getUsers);
+
 router.get(
   "/:id",
   authMiddleware,
-  userAuthorizationMiddleware,
+  userAuthorizationMiddleware(true),
   userController.getUserById,
 );
 
 router.put(
   "/:id",
   authMiddleware,
-  userAuthorizationMiddleware,
+  userAuthorizationMiddleware(false),
   validationMiddleware(userValidation),
   userController.updateUser,
 );
@@ -35,7 +36,7 @@ router.put(
 router.patch(
   "/:id",
   authMiddleware,
-  userAuthorizationMiddleware,
+  userAuthorizationMiddleware(false),
   validationMiddleware(businessStatusValidation),
   userController.updateBusinessStatus,
 );
@@ -43,7 +44,7 @@ router.patch(
 router.delete(
   "/:id",
   authMiddleware,
-  userAuthorizationMiddleware,
+  userAuthorizationMiddleware(true),
   userController.deleteUser,
 );
 export default router;
