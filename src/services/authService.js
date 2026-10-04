@@ -1,8 +1,12 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import { OAuth2Client } from "google-auth-library";
+import crypto from "crypto";
 
 import userRepository from "../repositories/userRepository.js";
 import AppError from "../middleware/AppError.js";
+
+const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 const login = async (email, password) => {
   const user = await userRepository.findByEmail(email);
@@ -65,6 +69,80 @@ const login = async (email, password) => {
   return token;
 };
 
+const googleLogin = async (idToken) => {
+  const ticket = await googleClient.verifyIdToken({
+    idToken,
+    audience: process.env.GOOGLE_CLIENT_ID,
+  });
+
+  const payload = ticket.getPayload();
+
+  console.log("GOOGLE PAYLOAD:", payload);
+
+  const user = await userRepository.findByEmail(payload.email);
+
+  console.log("LOCAL USER:", user);
+
+  if (user) {
+    if (user.isAdmin || user.isBusiness) {
+      throw new AppError(
+        "Google login is only available for regular users",
+        403,
+      );
+    }
+
+    const jwtPayload = {
+      _id: user._id,
+      isBusiness: user.isBusiness,
+      isAdmin: user.isAdmin,
+    };
+
+    return jwt.sign(jwtPayload, process.env.JWT_SECRET, {
+      expiresIn: "1h",
+    });
+  }
+
+  const randomPassword = crypto.randomBytes(32).toString("hex");
+  const hashedPassword = await bcrypt.hash(randomPassword, 10);
+
+  const newUser = {
+    name: {
+      first: payload.given_name,
+      middle: "",
+      last: payload.family_name,
+    },
+    phone: "Not provided",
+    email: payload.email,
+    image: {
+      url: payload.picture,
+      alt: "Google profile picture",
+    },
+    password: hashedPassword,
+    address: {
+      state: "Not provided",
+      country: "Not provided",
+      city: "Not provided",
+      street: "Not provided",
+      houseNumber: 1,
+      zip: 0,
+    },
+    isAdmin: false,
+    isBusiness: false,
+  };
+
+  const createdUser = await userRepository.create(newUser);
+
+  const jwtPayload = {
+    _id: createdUser._id,
+    isBusiness: createdUser.isBusiness,
+    isAdmin: createdUser.isAdmin,
+  };
+
+  return jwt.sign(jwtPayload, process.env.JWT_SECRET, {
+    expiresIn: "1h",
+  });
+};
 export default {
   login,
+  googleLogin,
 };

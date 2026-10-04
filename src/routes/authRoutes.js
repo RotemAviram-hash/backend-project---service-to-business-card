@@ -4,5 +4,6 @@ import authController from "../controllers/authController.js";
 const router = express.Router();
 
 router.post("/login", authController.login);
+router.post("/google", authController.googleLogin);
 
 export default router;
