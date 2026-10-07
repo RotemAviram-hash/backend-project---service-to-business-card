@@ -68,32 +68,28 @@ GOOGLE_CLIENT_ID=your_google_client_id
 
 Routes ➔ Controllers ➔ Services ➔ Repositories ➔ Models ➔ MongoDB
 
+```text
 backend-project---service-to-business-card/
-│
 ├── app.js
 ├── package.json
 ├── README.md
-│
 ├── config/
-│ ├── default.json
-│ ├── development.json
-│ └── atlas.json
-│
+│   ├── default.json
+│   ├── development.json
+│   └── atlas.json
 ├── public/
-│ └── index.html
-│
+│   └── index.html
 └── src/
-├── config/ # התחברות ל-DB (connectDB) ונתוני אתחול (initialData)
-├── controllers/ # טיפול בבקשות ותגובות HTTP
-├── middleware/ # Auth, Admin, Business, Validation, Error Handling
-├── models/ # סכמות Mongoose (User, Card)
-├── repositories/ # גישה ושילוב שאילתות מול מסד הנתונים
-├── routes/ # הגדרת נתיבי ה-API
-├── services/ # לוגיקה עסקית
-├── utils/ # File Logger, הדפסות צבעוניות לקונסול (printMessage)
-└── validations/ # סכמות ולידציה של Joi (User, Card, BizNumber)
-
----
+    ├── config/          # התחברות ל-DB (connectDB) ונתוני אתחול (initialData)
+    ├── controllers/     # טיפול בבקשות ותגובות HTTP
+    ├── middleware/      # Auth, Admin, Business, Validation, Error Handling
+    ├── models/          # סכמות Mongoose (User, Card)
+    ├── repositories/    # גישה ושילוב שאילתות מול מסד הנתונים
+    ├── routes/          # הגדרת נתיבי ה-API
+    ├── services/        # לוגיקה עסקית
+    ├── utils/           # File Logger, הדפסות צבעוניות לקונסול (printMessage)
+    └── validations/     # סכמות ולידציה של Joi (User, Card, BizNumber)
+```
 
 ## 📡 תיעוד Endpoints (API Summary)
 
@@ -157,3 +153,7 @@ backend-project---service-to-business-card/
 - [x] נבדקה תאימות ב-MongoDB מקומי וב-MongoDB Atlas.
 - [x] קיימים נתוני אתחול ראשוניים (`initialData.js`).
 - [x] כל ה-Endpoints והבונוסים נבדקו ונמצאו תקינים.
+
+```
+
+```
